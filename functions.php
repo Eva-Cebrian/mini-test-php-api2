@@ -1,7 +1,10 @@
 <?php
 
 
-const API_URL = "https://whenisthenextmcufilm.com/api";
+function render_template($template, $data = [])
+{
+    require('templates/$template.php');
+}
 
 function get_data($url): array // le indicamos que la funciona debe devolver un array
 {
