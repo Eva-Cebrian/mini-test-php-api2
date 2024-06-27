@@ -3,7 +3,8 @@
 
 function render_template($template, $data = [])
 {
-    require('templates/$template.php');
+    extract($data);
+    require("templates/$template.php");
 }
 
 function get_data($url): array // le indicamos que la funciona debe devolver un array
@@ -15,6 +16,7 @@ function get_data($url): array // le indicamos que la funciona debe devolver un 
 
 function get_until_message(int $days): string
 {
+
     return match (true) {
         $days == 0 => "Hoy se estrena!",
         $days == 1 => "Mañana es el extreno",
@@ -27,7 +29,7 @@ function get_until_message(int $days): string
 
 
 $data = get_data(API_URL);
-$untilMessage = get_until_message($data["days_until"]);
+$until_message = get_until_message($data["days_until"]);
 
 
 ?>
